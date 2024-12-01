@@ -2,21 +2,14 @@ package main
 
 import (
 	"fmt"
+	utils "hawaiidev/advent-of-code/go"
 	"math"
-	"os"
-	"sort"
 	"strconv"
 	"strings"
 )
 
 func main() {
-	data, err := os.ReadFile("../input.txt")
-	if err != nil {
-		panic(err)
-	}
-
-	input := string(data)
-	lines := strings.Split(input, "\n")
+	lines := utils.ReadLines("../input.txt")
 
 	arr1 := make([]int, len(lines))
 	arr2 := make([]int, len(lines))
@@ -29,12 +22,8 @@ func main() {
 		arr2[i] = a2
 	}
 
-	sort.Slice(arr1, func(i, j int) bool {
-		return arr1[i] < arr1[j]
-	})
-	sort.Slice(arr2, func(i, j int) bool {
-		return arr2[i] < arr2[j]
-	})
+	utils.SortSlice(arr1, func(a, b int) bool { return a < b })
+	utils.SortSlice(arr2, func(a, b int) bool { return a < b })
 
 	sum := 0
 	for i := 0; i < len(lines); i++ {

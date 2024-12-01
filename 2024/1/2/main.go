@@ -1,19 +1,13 @@
 package main
 
 import (
-	"os"
+	utils "hawaiidev/advent-of-code/go"
 	"strconv"
 	"strings"
 )
 
 func main() {
-	data, err := os.ReadFile("../input.txt")
-	if err != nil {
-		panic(err)
-	}
-
-	input := string(data)
-	lines := strings.Split(input, "\n")
+	lines := utils.ReadLines("../input.txt")
 
 	arr1 := make([]int, len(lines))
 	occurances := make(map[int]int)
