@@ -16,22 +16,16 @@ func main() {
 	lines := strings.Split(input, "\n")
 
 	arr1 := make([]int, len(lines))
-	arr2 := make([]int, len(lines))
+	occurances := make(map[int]int)
 
 	for i := 0; i < len(lines); i++ {
 		a1, _ := strconv.Atoi(strings.Split(lines[i], "   ")[0])
 		a2, _ := strconv.Atoi(strings.Split(lines[i], "   ")[1])
 
 		arr1[i] = a1
-		arr2[i] = a2
-	}
 
-	occurances := make(map[int]int)
-
-	for i := 0; i < len(lines); i++ {
-		num := arr2[i]
-		prev := occurances[num]
-		occurances[num] = prev + 1
+		prev := occurances[a2]
+		occurances[a2] = prev + 1
 	}
 
 	similarity := 0
