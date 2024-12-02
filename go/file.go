@@ -16,3 +16,7 @@ func ReadLines(path string) []string {
 
 	return strings.Split(content, "\n")
 }
+
+func SplitLineOnSpaces(line string) []string {
+	return strings.Fields(line)
+}
