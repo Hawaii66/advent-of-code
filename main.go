@@ -134,7 +134,7 @@ func main() {
 
 	cookie := os.Getenv("COOKIE")
 	year := os.Getenv("YEAR")
-	day := promptUser("Date: ")
+	day := promptUser("Day: ")
 
 	fmt.Println("Getting AOC", year, day)
 	body, err := fetchAdventOfCodeInput(cookie, year, day)
